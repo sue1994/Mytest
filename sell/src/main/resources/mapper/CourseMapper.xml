@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsj.sell.pc.mapper.CourseMapper">
+    <select id="getCourseList" resultType="java.util.Map">
+        select c.courseName,p.periodName,s.subjectName,g.gradeName
+        from Edu_Course c
+        left join Edu_Curriculum cu on cu.id=c.curriculumId
+        left join OA_Period p on p.id=cu.periodId
+        left join OA_Subject s on s.id=cu.subjectId
+        left join OA_Grade g on g.id=cu.gradeId
+    </select>
+</mapper>

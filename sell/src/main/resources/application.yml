@@ -1,0 +1,13 @@
+server:
+  port: 8189
+spring:
+  datasource:
+    url: jdbc:sqlserver://192.168.40.33:1433;DataBaseName=OaProject
+    username: sa
+    password: lsj
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: false

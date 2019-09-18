@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsj.sell.pc.mapper.EmployeeMapper">
+   <!-- <sql id="getAllEmployee">
+        select emp.employeeName,emp.englishName,emp.sex,emp.tel,emp.email,emp.cardAddr ,dic.dicName politicalStatus
+        from OA_Employee emp
+        left join OA_Dictionary dic on dic.id=emp.politicalStatus
+        where 1=1
+        <if test="page.map.employeeName!=null and page.map.employeeName!=''">
+            and emp.employeeName=#{employeeName}
+        </if>
+
+    </sql>-->
+
+    <select id="getEmployeeList" resultType="java.util.Map">
+        select emp.employeeName,emp.englishName,emp.sex,emp.tel,emp.email,emp.cardAddr ,dic.dicName politicalStatus
+        from OA_Employee emp
+        left join OA_Dictionary dic on dic.id=emp.politicalStatus
+        where 1=1
+        <if test="page.params.employeeName!=null and page.params.employeeName!=''">
+            and emp.employeeName=#{page.params.employeeName}
+        </if>
+    </select>
+    <!--<select id="getEmployeeListCount" resultType="java.util.Map">
+        select count(*) from (
+            <include refid="getAllEmployee"/>
+        )
+    </select>-->
+
+
+</mapper>
